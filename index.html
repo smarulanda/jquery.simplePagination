@@ -2,9 +2,150 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>jquery.simplePagination</title>
+
+	<!-- jQuery and plugin -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdn.rawgit.com/smarulanda/jquery.simplePagination/master/jquery.simplePagination.js"></script>
+
+	<!-- Bootstrap CDN -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+	<!-- Prism JS -->
+	<script src="http://prismjs.com/prism.js"></script>
+	<link rel="stylesheet" href="http://prismjs.com/themes/prism.css">
+
+	<!-- Font Awesome -->
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
-<body>
-	<p>Simple pagination</p>
+
+<body role="document">
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-inverse" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="http://smarulanda.github.io">Sebastian Marulanda</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="https://github.com/smarulanda/jquery.simplePagination"><i class="fa fa-github"></i> GitHub</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container content">
+		<h1 class="page-header">Examples</h1>
+		
+		<div class="example">
+			<h3>Paginate a large HTML table.</h3>
+
+			<h5>Sample:</h5>
+			<table id="doctors" class="table table-striped">
+				<thead>
+					<th>Designation</th>
+					<th>Actor</th>
+					<th>Year</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>First</td>
+						<td>William Hartnell</td>
+						<td>1963</td>
+					</tr>
+					<tr>
+						<td>Second</td>
+						<td>Patrick Troughton</td>
+						<td>1966</td>
+					</tr>
+					<tr>
+						<td>Third</td>
+						<td>Jon Pertwee</td>
+						<td>1970</td>
+					</tr>
+					<tr>
+						<td>Fourth</td>
+						<td>Tom Baker</td>
+						<td>1974</td>
+					</tr>
+					<tr>
+						<td>Fifth</td>
+						<td>Peter Davison</td>
+						<td>1981</td>
+					</tr>
+					<tr>
+						<td>Sixth</td>
+						<td>Colin Baker</td>
+						<td>1984</td>
+					</tr>
+					<tr>
+						<td>Seventh</td>
+						<td>Sylvester McCoy</td>
+						<td>1987</td>
+					</tr>
+					<tr>
+						<td>Eighth</td>
+						<td>Paul McGann</td>
+						<td>1996</td>
+					</tr>
+					<tr>
+						<td>War</td>
+						<td>John Hurt</td>
+						<td>2013</td>
+					</tr>
+					<tr>
+						<td>Ninth</td>
+						<td>Christopher Eccleston</td>
+						<td>2005</td>
+					</tr>
+					<tr>
+						<td>Tenth</td>
+						<td>David Tennant</td>
+						<td>2005</td>
+					</tr>
+					<tr>
+						<td>Eleventh</td>
+						<td>Matt Smith</td>
+						<td>2010</td>
+					</tr>
+					<tr>
+						<td>Twelfth</td>
+						<td>Peter Capaldi</td>
+						<td>2013</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<h5>Code:</h5>
+			<pre><code class="language-javascript">$("#doctors").simplePagination({
+	previousButtonClass: "btn btn-default btn-sm",
+	nextButtonClass: "btn btn-default btn-sm"
+});</code></pre>
+		</div>
+	</div>
+
+	<script>
+		$(function() {
+			$("#doctors").simplePagination({
+				previousButtonClass: "btn btn-default btn-sm",
+				nextButtonClass: "btn btn-default btn-sm"
+			});
+
+			$(".remove-row").each(function () {
+				var $row = $(this).parents("tr");
+				$(this).undoCountdown({ 
+					onComplete: function() {
+						$row.remove();
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>
