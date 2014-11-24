@@ -43,7 +43,9 @@ Let's show ten (10) records per page, start on the second page, and add Bootstra
 ```javascript
 $("#pages").undoCountdown({
   perPage: 10,
-  currentPage: 2
+  currentPage: 2,
+  previousButtonClass: "btn btn-default btn-xs",
+  nextButtonClass: "btn btn-default btn-xs"
 });
 ```
 
@@ -52,11 +54,11 @@ $("#pages").undoCountdown({
 | Name  | Type | Description | Values | Default | 
 |:----- |:---- |:----------- |:------ |:------- |
 | perPage | Number | The number of rows per page | Number | 5 |
-| containerClass | String | Class name(s) for the pagination containing div | String | "" |
-| previousButtonClass | String | Class name(s) for the previous button | String | "" |
-| nextButtonClass | String | Class name(s) for the next button | String | "" |
-| previousButtonText | String | The text to show on the previous button | String | "&larr; Previous" |
-| nextButtonText | String | The text to show on the next button | String | "Next &rarr;" |
+| containerClass | String | Class name(s) for the pagination containing div | String | '' |
+| previousButtonClass | String | Class name(s) for the previous button | String | '' |
+| nextButtonClass | String | Class name(s) for the next button | String | '' |
+| previousButtonText | String | The text to show on the previous button | String | 'Previous' |
+| nextButtonText | String | The text to show on the next button | String | 'Next' |
 | currentPage | Number | The page to begin on | Number | 1 |
 
 ## Demo

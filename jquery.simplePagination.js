@@ -4,18 +4,18 @@
 		
 		var defaults = {
 			perPage: 5,
-			containerClass: "",
-			previousButtonClass: "btn btn-default btn-xs",
-			nextButtonClass: "btn btn-default btn-xs",
-			previousButtonText: "&larr; Previous",
-			nextButtonText: "Next &rarr;",
+			containerClass: '',
+			previousButtonClass: '',
+			nextButtonClass: '',
+			previousButtonText: 'Previous',
+			nextButtonText: 'Next',
 			currentPage: 1
 		};
 
 		var settings = $.extend({}, defaults, options);
 
 		return this.each(function() {
-			var $rows = $("tbody tr", this);
+			var $rows = $('tbody tr', this);
 			var pages = Math.ceil($rows.length/settings.perPage);
 
 			var container = document.createElement('div');
@@ -74,7 +74,7 @@
 				$rows.hide();
 				$rows.slice((from-1), to).show();
 
-				of.innerHTML = from + " to " + to + " of " + $rows.length + " entries";
+				of.innerHTML = from + ' to ' + to + ' of ' + $rows.length + ' entries';
 
 				if ($rows.length <= settings.perPage) {
 					$(container).hide();
