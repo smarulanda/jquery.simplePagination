@@ -17,16 +17,16 @@ Create your HTML table.
 ```html
 <table id="pages">
 	<tr>
-		<td>1.</td>
+		<td>First</td>
 		<td>William Hartnell</td>
 	</tr>
 	<tr>
-		<td>2.</td>
+		<td>Second</td>
 		<td>Patrick Troughton</td>
 	</tr>
 	..
 	<tr>
-		<td>12.</td>
+		<td>Twelfth</td>
 		<td>Peter Capaldi</td>
 	</tr>
 </table>
