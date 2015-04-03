@@ -41,7 +41,7 @@ This will add pagination buttons below your table along with text for the row co
 
 Let's show ten (10) records per page, start on the second page, and add Bootstrap styling to the pagination buttons:
 ```javascript
-$("#pages").undoCountdown({
+$("#pages").simplePagination({
   perPage: 10,
   currentPage: 2,
   previousButtonClass: "btn btn-default btn-xs",
