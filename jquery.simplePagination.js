@@ -5,7 +5,6 @@
  * @see: https://github.com/smarulanda/jquery.simplePagination
  */
 
-
 (function($) {
 
 	$.fn.simplePagination = function(options) {
