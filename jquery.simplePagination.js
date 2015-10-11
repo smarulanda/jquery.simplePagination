@@ -1,3 +1,11 @@
+/**
+ * jquery.simplePagination.js
+ * @version: v1.0.0
+ * @author: Sebastian Marulanda http://marulanda.me
+ * @see: https://github.com/smarulanda/jquery.simplePagination
+ */
+
+
 (function($) {
 
 	$.fn.simplePagination = function(options) {
