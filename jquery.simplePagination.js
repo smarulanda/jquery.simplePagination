@@ -29,7 +29,7 @@
 		var of;
 
 		$.fn.simplePagination.updatePerPage = function(newPerPage) {
-			settings.perPage = parseInt(newPerPage);
+			settings.perPage = newPerPage;
 			settings.currentPage = defaults.currentPage;
 			pages = Math.ceil($rows.length/settings.perPage);
 
