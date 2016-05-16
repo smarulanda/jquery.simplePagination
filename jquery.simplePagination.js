@@ -8,7 +8,7 @@
 (function($) {
 
 	$.fn.simplePagination = function(options) {
-		
+
 		var defaults = {
 			perPage: 5,
 			containerClass: '',
@@ -21,14 +21,49 @@
 
 		var settings = $.extend({}, defaults, options);
 
-		return this.each(function() {
-			var $rows = $('tbody tr', this);
-			var pages = Math.ceil($rows.length/settings.perPage);
+		var $rows;
+		var pages;
+		var container;
+		var bPrevious;
+		var bNext;
+		var of;
 
-			var container = document.createElement('div');
-			var bPrevious = document.createElement('button');
-			var bNext = document.createElement('button');
-			var of = document.createElement('span');
+		$.fn.simplePagination.updatePerPage = function(newPerPage) {
+			settings.perPage = parseInt(newPerPage);
+			settings.currentPage = defaults.currentPage;
+			pages = Math.ceil($rows.length/settings.perPage);
+
+			update();
+		};
+
+		var update = function update() {
+			var from = ((settings.currentPage - 1) * settings.perPage) + 1;
+			var to = from + settings.perPage - 1;
+
+			if (to > $rows.length) {
+				to = $rows.length;
+			}
+
+			$rows.hide();
+			$rows.slice((from-1), to).show();
+
+			of.innerHTML = from + ' to ' + to + ' of ' + $rows.length + ' entries';
+
+			if ($rows.length <= settings.perPage) {
+				$(container).hide();
+			} else {
+				$(container).show();
+			}
+		}
+
+		return this.each(function() {
+			$rows = $('tbody tr', this);
+			pages = Math.ceil($rows.length/settings.perPage);
+
+			container = document.createElement('div');
+			bPrevious = document.createElement('button');
+			bNext = document.createElement('button');
+			of = document.createElement('span');
 
 			bPrevious.innerHTML = settings.previousButtonText;
 			bNext.innerHTML = settings.nextButtonText;
@@ -70,25 +105,6 @@
 				update();
 			});
 
-			function update() {
-				var from = ((settings.currentPage - 1) * settings.perPage) + 1;
-				var to = from + settings.perPage - 1;
-
-				if (to > $rows.length) {
-					to = $rows.length;
-				}
-
-				$rows.hide();
-				$rows.slice((from-1), to).show();
-
-				of.innerHTML = from + ' to ' + to + ' of ' + $rows.length + ' entries';
-
-				if ($rows.length <= settings.perPage) {
-					$(container).hide();
-				} else {
-					$(container).show();
-				}
-			}
 		});
 
 	}
